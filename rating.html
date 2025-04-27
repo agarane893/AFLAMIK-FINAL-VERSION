@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratings</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="rating.css" />
+</head>
+<body>
+
+  <!--  Overlay + background blur -->
+  <div class="background-overlay"></div>
+
+  <!--  HEADER DIRECTLY INCLUDED -->
+  <header>
+    <a href="Acceuil.html" class="logo">
+      <img src="./Assets/logo-aflamik.png" alt="Aflamik Logo" class="logo-img">
+      <span class="logo-text">Aflamik</span>
+    </a>
+    <nav>
+      <div class="nav-links">
+        <a href="Accueil.html"><i class="fas fa-home"></i> Home</a>
+        <a href="movie.html"><i class="fas fa-film"></i> Movies</a>
+        <a href="actors.html"><i class="fas fa-users"></i> Actors</a>
+        <a href="profile.html"><i class="fas fa-star"></i> Profile</a>
+      </div>
+      <div class="auth-buttons" id="authButtons">
+        <button class="auth-btn sign-in" onclick="showLoginModal()">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+        <button class="auth-btn sign-up" onclick="showSignupModal()">
+          <i class="fas fa-user-plus"></i> Sign Up
+        </button>
+      </div>
+      <div class="user-profile" id="userProfile" style="display: none;">
+        <div class="user-avatar">Y</div>
+        <span>Youssef</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="main-content parallax-element" id="mainContent">
+
+      <!-- MEDIA SECTION (poster + trailer) -->
+      <div class="media-section">
+        <div class="poster">
+          <img id="moviePoster" src="" alt="Movie Poster">
+        </div>
+        <div class="trailer">
+          <iframe id="movieTrailer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Movie Info -->
+      <div class="info-section">
+        <h2 id="movieTitle">Loading...</h2>
+        <div class="movie-meta" id="movieMeta"></div>
+
+        <div class="rating-container">
+          <div class="rating-stars" id="ratingStars">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+          </div>
+          <div class="rating-text" id="ratingText">Rate this movie</div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="button" onclick="likeMovie()"><i class="fas fa-thumbs-up"></i> Like <span id="like-count">0</span></button>
+          <button class="button" onclick="dislikeMovie()"><i class="fas fa-thumbs-down"></i> Dislike <span id="dislike-count">0</span></button>
+          <button class="button watchlist" onclick="addToWatchlist()"><i class="fas fa-bookmark"></i> Watchlist</button>
+          <button class="button" onclick="shareMovie()"><i class="fas fa-share-alt"></i> Share</button>
+        </div>
+
+        <div class="synopsis">
+          <h3>Synopsis</h3>
+          <p id="movieSynopsis">Loading...</p>
+        </div>
+      </div>
+
+      <!-- Cast -->
+      <div class="cast-section">
+        <h3>Top Cast</h3>
+        <div class="cast-grid" id="castGrid"></div>
+      </div>
+
+     <!-- Comments -->
+<div class="comment-section">
+  <h3><i class="fas fa-comments"></i> Join the Conversation</h3>
+  
+  <!-- Comment box to post a new comment -->
+  <textarea class="comment-box" id="commentBox" placeholder="Write your thoughts about this movie..."></textarea>
+  <button class="button" onclick="postComment()"><i class="fas fa-paper-plane"></i> Post Comment</button>
+  
+  <!-- List of comments -->
+  <div class="comment-list" id="comments"></div>
+</div>
+
+      <!-- Suggestions -->
+      <div class="suggest-section">
+        <h3><i class="fas fa-lightbulb"></i> Suggest a Similar Movie</h3>
+        <div class="suggest-input-container">
+          <input class="suggest-input" type="text" id="suggestionInput" placeholder="Type a movie name..." />
+          <button class="button" onclick="addSuggestion()"><i class="fas fa-plus"></i> Add</button>
+        </div>
+        <ul class="suggested-movies" id="suggestedMovies"></ul>
+      </div>
+
+      <!-- Recommendations -->
+      <div class="recommendations">
+        <h3><i class="fas fa-lightbulb"></i> More Like This</h3>
+        <div class="movie-grid" id="recommendationsGrid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="./Assets/490998985_715717107500255_5742551139500277125_n.png" alt="Aflamik logo" id="footer-logo">
+      <ul class="footer-links">
+        <li><a href="#trending"><i>Trending</i></a></li>
+        <li><a href="#top-rated"><strong>Top Rated</strong></a></li>
+        <li><a href="#most-viewed">Most viewed</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <form class="footer-form">
+        <label for="email">Subscribe for Updates:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+        <label for="genre">Favorite Genre:</label>
+        <select id="genre" name="genre">
+          <option value="action">Action</option>
+          <option value="drama">Drama</option>
+          <option value="comedy">Comedy</option>
+          <option value="horror">Horror</option>
+        </select>
+        <div>
+          <input type="checkbox" id="notify" name="notify">
+          <label for="notify">Notify me about new reviews</label>
+        </div>
+        <input type="submit" value="Join Now">
+      </form>
+      <p class="footer-note">
+        Join <strong>Aflamik</strong> for unbiased reviews! <br>
+        <i>Your next favorite film is just a scroll away.</i>
+      </p>
+    </div>
+    <hr class="footer-separator">
+    <div class="footer-bottom" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+      <p>
+        <small>&copy; <time datetime="2025-04-20">2025</time> Aflamik. All rights reserved.</small><br>
+        <abbr title="Internet Movie Database">IMDb</abbr> scores aren't everything—<mark>real reviews</mark> matter.<br>
+      </p>
+      <p>
+        This platform is curated by <cite>Movie Enthusiasts</cite> worldwide.<br>
+        Original title <del>The Night Falls</del> <ins>Midnight Echoes</ins> became a cult hit.<br>
+        Aflamik™ rates every film from <sub>indie</sub> to <sup>blockbuster</sup>.<br>
+      </p>
+      <p>
+        Tip: Press <kbd>Ctrl</kbd> + <kbd>F</kbd> to find your favorite movie!<br>
+        Example of a genre tag in HTML: <code>&lt;genre&gt;Thriller&lt;/genre&gt;</code><br>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="rating.js"></script>
+</body>
+</html>

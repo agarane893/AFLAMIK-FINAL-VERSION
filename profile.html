@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aflamik - Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Overlay + background blur -->
+  <div class="background-overlay"></div>
+
+  <!-- Header intégré -->
+  <header>
+    <a href="Acceuil.html" class="logo">
+      <img src="C:\Users\21621\Desktop\Aflamik\front\Assets\logo-aflamik.png" alt="Aflamik Logo" class="logo-img">
+      <span class="logo-text">Aflamik</span>
+    </a>
+    <nav>
+      <div class="nav-links">
+        <a href="Accueil.html"><i class="fas fa-home"></i> Home</a>
+        <a href="movie.html"><i class="fas fa-film"></i> Movies</a>
+        <a href="actors.html"><i class="fas fa-users"></i> Actors</a>
+        <a href="profile.html"><i class="fas fa-star"></i> Profile</a>
+      </div>
+      <div class="auth-buttons" id="authButtons">
+        <button class="auth-btn sign-in" onclick="showLoginModal()">
+          <i class="fas fa-sign-in-alt"></i> Sign In
+        </button>
+        <button class="auth-btn sign-up" onclick="showSignupModal()">
+          <i class="fas fa-user-plus"></i> Sign Up
+        </button>
+      </div>
+      <div class="user-profile" id="userProfile" style="display: none;">
+        <div class="user-avatar">Y</div>
+        <span>Youssef</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PROFILE SECTION -->
+  <main class="profile-main">
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="emoji-avatar">🔥</div>
+        <h2 class="username">Youssef</h2>
+        <p class="user-bio">Movie enthusiast, reviewer, and popcorn addict 🍿</p>
+      </div>
+
+      <div class="profile-tabs">
+        <button class="tab active" onclick="showTab('info')">Info</button>
+        <button class="tab" onclick="showTab('Watchlist')">Watchlist</button>
+        <button class="tab" onclick="showTab('settings')">Settings</button>
+      </div>
+
+      <div class="profile-content">
+        <div id="info" class="tab-content active">
+          <h3>Personal Info</h3>
+          <p><strong>Email:</strong> youssef@gmail.com</p>
+          <p><strong>Location:</strong> Tunis, Tunisia</p>
+          <p><strong>Member since:</strong> January 2024</p>
+        </div>
+
+        <div id="Watchlist" class="tab-content">
+          <h3>Watchlist</h3>
+          <div id="Watchlist" class="movie-list"></div>
+        </div>
+
+        <div id="settings" class="tab-content">
+          <h3>Settings</h3>
+          <button onclick="alert('Change password clicked')">Change Password</button><br><br>
+          <button onclick="alert('Log out clicked')">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <img src="./Assets/490998985_715717107500255_5742551139500277125_n.png" alt="Aflamik logo" id="footer-logo">
+      <ul class="footer-links">
+        <li><a href="#trending"><i>Trending</i></a></li>
+        <li><a href="#top-rated"><strong>Top Rated</strong></a></li>
+        <li><a href="#most-viewed">Most viewed</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <form class="footer-form">
+        <label for="email">Subscribe for Updates:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+        <label for="genre">Favorite Genre:</label>
+        <select id="genre" name="genre">
+          <option value="action">Action</option>
+          <option value="drama">Drama</option>
+          <option value="comedy">Comedy</option>
+          <option value="horror">Horror</option>
+        </select>
+        <div>
+          <input type="checkbox" id="notify" name="notify">
+          <label for="notify">Notify me about new reviews</label>
+        </div>
+        <input type="submit" value="Join Now">
+      </form>
+      <p class="footer-note">
+        Join <strong>Aflamik</strong> for unbiased reviews! <br>
+        <i>Your next favorite film is just a scroll away.</i>
+      </p>
+    </div>
+    <hr class="footer-separator">
+    <div class="footer-bottom" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+      <p>
+        <small>&copy; <time datetime="2025-04-20">2025</time> Aflamik. All rights reserved.</small><br>
+        <abbr title="Internet Movie Database">IMDb</abbr> scores aren't everything—<mark>real reviews</mark> matter.<br>
+      </p>
+      <p>
+        This platform is curated by <cite>Movie Enthusiasts</cite> worldwide.<br>
+        Original title <del>The Night Falls</del> <ins>Midnight Echoes</ins> became a cult hit.<br>
+        Aflamik™ rates every film from <sub>indie</sub> to <sup>blockbuster</sup>.<br>
+      </p>
+      <p>
+        Tip: Press <kbd>Ctrl</kbd> + <kbd>F</kbd> to find your favorite movie!<br>
+        Example of a genre tag in HTML: <code>&lt;genre&gt;Thriller&lt;/genre&gt;</code><br>
+      </p>
+    </div>
+  </footer>
+
+  <script src="profile.js"></script>
+</body>
+</html>
